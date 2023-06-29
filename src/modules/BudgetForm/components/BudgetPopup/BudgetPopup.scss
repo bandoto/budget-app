@@ -1,0 +1,63 @@
+@import '../../../../styles/variables.scss';
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    padding: 1.2rem;
+
+    background: $valueBg;
+    color: $white;
+
+    font-size: 3.2rem;
+
+    cursor: pointer;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    span {
+      display: block;
+
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    max-width: 60rem;
+
+    padding: 2rem;
+
+    background-color: $popup;
+    border-radius: 2rem;
+
+    font-size: 3.2rem;
+    color: $white;
+  }
+}
+

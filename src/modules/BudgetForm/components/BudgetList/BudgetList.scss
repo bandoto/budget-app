@@ -1,0 +1,10 @@
+@import '../../../../styles/variables.scss';
+
+.budget__list {
+  flex: 1 1 60%;
+
+  background-color: $black;
+  color: $white;
+
+  overflow: auto;
+}

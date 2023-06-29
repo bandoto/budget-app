@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+
+.budget__head {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  background: $valueBg;
+}
+
+.budget__value {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget__total {
+  color: $white;
+
+  font-weight: 700;
+  font-size: 4.8rem;
+}

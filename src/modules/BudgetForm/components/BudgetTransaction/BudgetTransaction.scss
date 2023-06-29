@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+.transaction {
+  font-size: 3.2rem;
+  color: $white;
+  text-align: center;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: $black;
+  }
+
+  &__button {
+    background: $valueBg;
+    color: $white;
+
+    font-size: 3.2rem;
+
+    cursor: pointer;
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    a {
+      display: block;
+
+      padding: 2rem;
+    }
+  }
+}
