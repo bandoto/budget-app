@@ -53,15 +53,29 @@ export const budgetSlice = createSlice({
         JSON.stringify(state.transactions.map((item) => item))
       );
     },
-    removeFromTransactions: (state, action: PayloadAction<{ id: string }>) => {
+    removeFromTransactions: (
+      state,
+      action: PayloadAction<{
+        id: string;
+        value: number;
+        type: "add" | "remove";
+      }>
+    ) => {
       state.transactions = state.transactions.filter(
-        (transaction) => transaction.id === action.payload.id
+        (transaction) => transaction.id !== action.payload.id
       );
+
+      if (action.payload.type === "add") {
+        state.total -= Number(action.payload.value);
+      } else {
+        state.total += Number(action.payload.value);
+      }
 
       localStorage.setItem(
         "TRANSACTIONS",
         JSON.stringify(state.transactions.map((item) => item))
       );
+      localStorage.setItem("TOTAL", JSON.stringify(state.total));
     },
     openPopup: (state) => {
       state.popupOpen = true;

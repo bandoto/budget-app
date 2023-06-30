@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
-import { getSingleTransaction } from "../../api/budgetSlice";
+import {
+  getSingleTransaction,
+  removeFromTransactions,
+} from "../../api/budgetSlice";
 import { Container } from "../../../../UI/Container/Container";
 
 import "./BudgetTransaction.scss";
@@ -18,6 +21,16 @@ export const BudgetTransaction: React.FC = () => {
     }
   }, [params.id, dispatch]);
 
+  const handleClick = (
+    id: string | undefined,
+    value: number | undefined,
+    type: "add" | "remove" | undefined
+  ): void => {
+    if (id && value && type) {
+      dispatch(removeFromTransactions({ id, value, type }));
+    }
+  };
+
   return (
     <section className="transaction">
       <Container>
@@ -31,6 +44,18 @@ export const BudgetTransaction: React.FC = () => {
             {singleTransaction?.value}
           </span>
           <span>Дата: {singleTransaction?.date}</span>
+          <button
+            onClick={() =>
+              handleClick(
+                singleTransaction?.id,
+                singleTransaction?.value,
+                singleTransaction?.type
+              )
+            }
+            className="transaction__button"
+          >
+            <Link to="/">DELETE</Link>
+          </button>
         </div>
       </Container>
     </section>

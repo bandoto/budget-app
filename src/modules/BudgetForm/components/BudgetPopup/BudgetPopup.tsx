@@ -13,7 +13,7 @@ import { ITransaction } from "../../models/BudgetModels";
 import "./BudgetPopup.scss";
 
 interface IPopup {
-  type: string;
+  type: "add" | "remove";
   isShow: boolean;
 }
 
